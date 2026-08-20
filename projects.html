@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects — Will Heintschel</title>
+        <meta name="description" content="Homelab and infrastructure security writeups.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="src/style.css">
+    </head>
+    <body>
+
+        <header class="statusbar">
+            <div class="statusbar__brand">
+                <span class="statusbar__dot"></span>
+                <strong>will-heintschel</strong>
+            </div>
+            <nav class="navpills" aria-label="Primary">
+                <a class="navpill" href="index.html">home</a>
+                <a class="navpill" href="projects.html" aria-current="page">projects</a>
+                <a class="navpill" href="games.html">games</a>
+                <a class="navpill" href="about.html">about</a>
+                <a class="navpill" href="contact.html">contact</a>
+            </nav>
+            <span class="statusbar__clock" data-clock>00:00</span>
+        </header>
+
+        <main>
+
+            <section>
+                <p class="eyebrow">project 01</p>
+                <h1>Personal Homelab &amp; Self-Hosted Infrastructure</h1>
+                <p class="lede">An ongoing Ubuntu Server build run like it matters — segmented access, active monitoring, and documentation for every change. The goal was never just "get it running," it was to practice the habits a security operations role actually requires.</p>
+
+                <div class="terminal">
+                    <span class="terminal__prompt">$</span> docker compose ps<br>
+                    12 services — jellyfin, sonarr, radarr, prowlarr,<br>
+                    bazarr, qbittorrent, portainer, uptime-kuma,<br>
+                    watchtower, homepage, glances, pi-hole<br>
+                    <span class="terminal__prompt">$</span> all healthy<span class="terminal__cursor" aria-hidden="true"></span>
+                </div>
+            </section>
+
+            <section>
+                <p class="eyebrow">access &amp; perimeter</p>
+                <div class="logline">
+                    <div class="logline__tag">FIREWALL</div>
+                    <div class="logline__body">
+                        <p><strong>UFW rules scoped to trusted ranges.</strong> SSH and other sensitive ports are restricted to the local network and Tailscale VPN range only — nothing sensitive is reachable from the open internet, which cuts the exposed attack surface down to what actually needs to be public (Pi-hole's DNS port, network-wide).</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">VPN</div>
+                    <div class="logline__body">
+                        <p><strong>Tailscale for remote access.</strong> Every device reaches the homelab over an encrypted mesh VPN — no port forwarding, no public-facing admin panels. Access is device-authenticated rather than perimeter-based, following zero-trust principles at homelab scale.</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">DNS</div>
+                    <div class="logline__body">
+                        <p><strong>Pi-hole + DNS-over-HTTPS.</strong> Network-wide DNS filtering blocks known ad/malicious domains before they resolve, with DoH encrypting the resolution path itself so DNS traffic can't be trivially inspected or spoofed on the local network.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <p class="eyebrow">monitoring &amp; response</p>
+                <div class="logline">
+                    <div class="logline__tag">UPTIME</div>
+                    <div class="logline__body">
+                        <p><strong>Uptime Kuma tracks every service.</strong> HTTP health checks run continuously; a service going down triggers an alert instead of being discovered the next time someone tries to use it.</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">ALERTS</div>
+                    <div class="logline__body">
+                        <p><strong>Real-time Telegram notifications.</strong> Wired into Glances for CPU/RAM/temperature thresholds and into Radarr/Sonarr for download and health events — the same "alert fires, get triaged" loop as a SOC dashboard, just running against a homelab instead of an enterprise SIEM.</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">LOGS</div>
+                    <div class="logline__body">
+                        <p><strong>Ongoing log analysis.</strong> Service and container logs get reviewed to catch misconfigurations and connectivity issues before they become outages, not just after something breaks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <p class="eyebrow">orchestration &amp; upkeep</p>
+                <div class="logline">
+                    <div class="logline__tag">CONTAINERS</div>
+                    <div class="logline__body">
+                        <p><strong>Portainer + Watchtower.</strong> Portainer gives a single pane of glass over the container stack; Watchtower keeps images patched automatically, closing the gap between a CVE landing and the fix actually shipping.</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">NETWORK</div>
+                    <div class="logline__body">
+                        <p><strong>Static IP &amp; DNS via Netplan.</strong> Predictable addressing across the network, documented alongside the rest of the architecture so the whole setup is reproducible, not just remembered.</p>
+                    </div>
+                </div>
+                <div class="logline">
+                    <div class="logline__tag">DASHBOARD</div>
+                    <div class="logline__body">
+                        <p><strong>Homepage as the control surface.</strong> A unified dashboard pulling live widgets from every service via API keys — one place to see the health of the entire stack at a glance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <a class="btn btn--ghost" href="about.html">More about my background →</a>
+            </section>
+
+        </main>
+
+        <footer>
+            <span>&copy; 2026 Will Heintschel</span>
+            <div class="footer__links">
+                <a href="mailto:wdheintschel@gmail.com">email</a>
+                <a href="https://github.com/will-heintschel" target="_blank" rel="noopener">github</a>
+                <a href="contact.html">contact</a>
+            </div>
+        </footer>
+
+        <script src="src/script.js"></script>
+    </body>
+</html>

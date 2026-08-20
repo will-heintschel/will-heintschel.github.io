@@ -1,24 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
-    <link rel="stylesheet" href="src/style.css">
-</head>
-<body>
-    <header class="statusbar">
-        <div class="statusbar__brand">
-            <span class="statusbar__dot"></span>
-            <strong>will-heintschel</strong>
-        </div>
-        <nav class="navpills" aria-label="Primary">
-            <a class="navpill" href="index.html" aria-current="page">home</a>
-            <a class="navpill" href="projects.html">projects</a>
-            <a class="navpill" href="about.html">about</a>
-            <a class="navpill" href="contact.html">contact</a>
-        </nav>
-        <span class="statusbar__clock" data-clock>00:00</span>
-    </header>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Will Heintschel — Cybersecurity</title>
+        <meta name="description" content="Cybersecurity graduate documenting hands-on infrastructure security work — firewall hardening, network monitoring, and self-hosted systems administration.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="src/style.css">
+    </head>
+    <body>
+        <header class="statusbar">
+            <div class="statusbar__brand">
+                <span class="statusbar__dot"></span>
+                <strong>will-heintschel</strong>
+            </div>
+            <nav class="navpills" aria-label="Primary">
+                <a class="navpill" href="index.html" aria-current="page">home</a>
+                <a class="navpill" href="projects.html">projects</a>
+                <a class="navpill" href="games.html">games</a>
+                <a class="navpill" href="about.html">about</a>
+                <a class="navpill" href="contact.html">contact</a>
+            </nav>
+            <span class="statusbar__clock" data-clock>00:00</span>
+        </header>
+
+        <main>
+
+            <section class="hero">
+                <p class="eyebrow">security operations &amp; infrastructure</p>
+                <h1>Will Heintschel</h1>
+                <p class="lede">Cybersecurity graduate who hardens, monitors, and documents real infrastructure, not just labs on paper. Currently looking for entry-level Security Operations, GRC, or Compliance roles.</p>
+
+                <div class="terminal">
+                    <span class="terminal__prompt">$</span> whoami<br>
+                    will-heintschel — B.S. Cybersecurity, Purdue University Global<br>
+                    <span class="terminal__prompt">$</span> status<span class="terminal__cursor" aria-hidden="true"></span>
+                </div>
+            </section>
+
+            <section aria-labelledby="focus-heading">
+                <p class="eyebrow">focus areas</p>
+                <h2 id="focus-heading" class="sr-only" style="position:absolute;left:-9999px;">Focus areas</h2>
+                <div class="modgrid">
+                <div class="module">
+                    <div class="module__head"><span class="module__dot"></span> security &amp; networking</div>
+                    <ul>
+                        <li>Firewall hardening (UFW)</li>
+                        <li>VPN / zero-trust access (Tailscale)</li>
+                        <li>DNS filtering, DNS-over-HTTPS</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <div class="module__head"><span class="module__dot"></span> systems administration</div>
+                    <ul>
+                        <li>Ubuntu Server, Linux admin</li>
+                        <li>Docker &amp; Docker Compose</li>
+                        <li>Log analysis, troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="module">
+                    <div class="module__head"><span class="module__dot"></span> monitoring &amp; response</div>
+                        <ul>
+                            <li>Uptime Kuma, Glances</li>
+                            <li>Real-time alerting (Telegram API)</li>
+                            <li>Service health &amp; alert triage</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="feature-heading">
+                <p class="eyebrow">featured build</p>
+                <div class="feature">
+                    <h2 id="feature-heading">Personal Homelab &amp; Self-Hosted Infrastructure</h2>
+                    <p>A production-style Ubuntu Server environment built to practice the same fundamentals used in a SOC or GRC role; access control, monitoring, and documentation on infrastructure that's actually running.</p>
+                <div class="feature__stats">
+                    <div>
+                        <div class="stat__value">12+</div>
+                        <div class="stat__label">containerized services</div>
+                    </div>
+                    <div>
+                        <div class="stat__value">UFW</div>
+                        <div class="stat__label">firewall, VPN-scoped</div>
+                    </div>
+                    <div>
+                        <div class="stat__value">24/7</div>
+                        <div class="stat__label">uptime monitoring</div>
+                    </div>
+                </div>
+                    <a class="btn" href="projects.html">Read the full writeup →</a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <span>&copy; 2026 Will Heintschel</span>
+            <div class="footer__links">
+                <a href="mailto:wdheintschel@gmail.com">email</a>
+                <a href="https://github.com/will-heintschel" target="_blank" rel="noopener">github</a>
+                <a href="contact.html">contact</a>
+            </div>
+        </footer>
+
+        <script src="src/script.js"></script>
+    </body>
 </html>
