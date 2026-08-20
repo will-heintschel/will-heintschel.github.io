@@ -33,10 +33,16 @@
                 <h1>Will Heintschel</h1>
                 <p class="lede">Cybersecurity graduate who hardens, monitors, and documents real infrastructure, not just labs on paper. Currently looking for entry-level Security Operations, GRC, or Compliance roles.</p>
 
-                <div class="terminal">
-                    <span class="terminal__prompt">$</span> whoami<br>
-                    will-heintschel — B.S. Cybersecurity, Purdue University Global<br>
-                    <span class="terminal__prompt">$</span> status<span class="terminal__cursor" aria-hidden="true"></span>
+                <div class="terminal terminal--interactive" id="hero-terminal" tabindex="-1">
+                    <div class="terminal__history" id="terminal-history" aria-live="polite">
+                        <div class="terminal__line"><span class="terminal__prompt">$</span> whoami</div>
+                        <div class="terminal__line">will-heintschel — B.S. Cybersecurity, Purdue University Global</div>
+                        <div class="terminal__line terminal__hint">type <strong>help</strong> to see what this does</div>
+                    </div>
+                    <div class="terminal__inputline">
+                        <span class="terminal__prompt">$</span>
+                        <input type="text" id="terminal-input" class="terminal__input" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input">
+                    </div>
                 </div>
             </section>
 

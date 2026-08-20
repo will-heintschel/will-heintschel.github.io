@@ -59,10 +59,7 @@ button:focus-visible,
   border-radius: 3px;
 }
 
-/* ============================================================
-   Status bar / nav  — the signature element
-   Styled like a waybar / caelestia-shell module bar.
-   ============================================================ */
+/*Status bar / nav*/
 .statusbar {
   position: sticky;
   top: 0;
@@ -135,9 +132,7 @@ button:focus-visible,
   white-space: nowrap;
 }
 
-/* ============================================================
-   Layout shell
-   ============================================================ */
+/*Layout shell*/
 main {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -180,9 +175,19 @@ p.lede { color: var(--text); font-size: 1rem; max-width: 60ch; }
 
 .text-dim { color: var(--text-dim); }
 
-/* ============================================================
-   Terminal block
-   ============================================================ */
+/*Wireframe globe (decorative, non-interactive)*/
+.globe {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 1.75rem auto 0.5rem;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .globe { width: 160px; height: 160px; }
+}
+
+/*Terminal block*/
 .terminal {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -208,9 +213,45 @@ p.lede { color: var(--text); font-size: 1rem; max-width: 60ch; }
   50% { opacity: 0; }
 }
 
-/* ============================================================
-   Module cards (waybar-widget styled)
-   ============================================================ */
+/*Interactive hero terminal*/
+.terminal--interactive {
+  max-width: 68ch;
+  cursor: text;
+}
+.terminal__history {
+  margin-bottom: 0.15rem;
+}
+.terminal__line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.terminal__line.terminal__hint {
+  color: var(--text-dimmer);
+}
+.terminal__line.terminal__error {
+  color: var(--amber);
+}
+.terminal__inputline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.terminal__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  caret-color: var(--cyan);
+  padding: 0;
+}
+.terminal--interactive .terminal__cursor {
+  display: none;
+}
+
+/*Module cards (waybar-widget styled)*/
 .modgrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -252,9 +293,7 @@ p.lede { color: var(--text); font-size: 1rem; max-width: 60ch; }
 }
 .module li { margin-bottom: 0.3rem; }
 
-/* ============================================================
-   Featured project card
-   ============================================================ */
+/*Featured project card*/
 .feature {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -305,9 +344,19 @@ p.lede { color: var(--text); font-size: 1rem; max-width: 60ch; }
 }
 .btn--ghost:hover { border-color: var(--cyan-dim); color: var(--cyan); }
 
-/* ============================================================
-   Writeup page (projects.html) — log/report styling
-   ============================================================ */
+/*Embeds (itch.io, etc.)*/
+.embed-wrap {
+  margin: 1rem 0 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.embed-wrap iframe {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+
+/*Writeup page (projects.html) log/report styling*/
 .logline {
   display: flex;
   gap: 0.9rem;
@@ -328,9 +377,8 @@ p.lede { color: var(--text); font-size: 1rem; max-width: 60ch; }
 .logline__body p { margin: 0; color: var(--text-dim); font-size: 0.88rem; }
 .logline__body strong { color: var(--text); font-weight: 500; }
 
-/* ============================================================
-   Footer
-   ============================================================ */
+
+/*Footer*/
 footer {
   border-top: 1px solid var(--border);
   padding: 1.5rem;
@@ -350,9 +398,7 @@ footer a:hover { color: var(--cyan); }
   gap: 1.2rem;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
+/*Responsive*/
 @media (max-width: 640px) {
   .statusbar { flex-wrap: wrap; }
   .statusbar__clock { display: none; }
