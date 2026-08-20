@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
+    <header class="statusbar">
+        <div class="statusbar__brand">
+            <span class="statusbar__dot"></span>
+            <strong>will-heintschel</strong>
+        </div>
+        <nav class="navpills" aria-label="Primary">
+            <a class="navpill" href="index.html" aria-current="page">home</a>
+            <a class="navpill" href="projects.html">projects</a>
+            <a class="navpill" href="about.html">about</a>
+            <a class="navpill" href="contact.html">contact</a>
+        </nav>
+        <span class="statusbar__clock" data-clock>00:00</span>
+    </header>
 </body>
 </html>
